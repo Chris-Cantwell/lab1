@@ -233,8 +233,7 @@ to the function.
 ......................................................................*)
 
 let say_hello (name : string) : string =
-  if name = "Gabby" then "Hi Gabby. Welcome home! How are you today?"	
-  else "Hi " ^ name ^ ". How are you today?" ;;
+  failwith "say_hello not implemented";;
 
 (*......................................................................
 Exercise 9: Define a function, small_bills, that determines, given a
@@ -247,7 +246,7 @@ integers. For this lab, you may assume all prices given are
 non-negative.
 ......................................................................*)
 let small_bills (price : int) : bool =
-  if price > 20 && price & 20 = 0 then false else true ;;
+  failwith "small_bills not implemented" ;;
 
 (*......................................................................
 Exercise 10:
@@ -276,7 +275,7 @@ that:
 ......................................................................*)
 
 let computus_month (year : int) : int =
-    ;;
+  failwith "computus_month not implemented" ;;
 let computus_day (year : int) : int =
   failwith "computus_day not implemented" ;;
 

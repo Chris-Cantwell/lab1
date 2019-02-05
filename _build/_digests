@@ -1,0 +1,4 @@
+"Rule: ocaml: ml -> cmo & cmi (%=lab1 )": "\149\025\182\025\223\143?l\129\232\231\178?\167be"
+"Rule: ocaml dependencies ml (%=lab1 )": "p}\228w[n\183\210l\239[\176x \253\155"
+"Resource: /home/chris-cantwell/labs/lab01/lab1/lab1.ml": "\172\015d\193*\231\174\2377z}8\132r\190\224"
+"Rule: ocaml: cmo* -> byte (%=lab1 )": "\128\190^{c\007Q\028<\151\214\254\130\t47"

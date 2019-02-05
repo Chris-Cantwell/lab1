@@ -1,0 +1,21 @@
+### Starting build.
+# Target: lab1.ml.depends, tags: { warn(A-4-33-40-41-42-43-34-44), extension:ml, file:lab1.ml, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_str }
+/home/chris-cantwell/.opam/4.06.0/bin/ocamldep.opt -modules lab1.ml > lab1.ml.depends
+# Target: lab1.cmo, tags: { warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:cmo, extension:ml, file:lab1.cmo, file:lab1.ml, implem, ocaml, quiet, strict-sequence, thread, traverse, use_str }
+/home/chris-cantwell/.opam/4.06.0/bin/ocamlc.opt -c -I /home/chris-cantwell/.opam/4.06.0/lib/ocaml -thread -strict-sequence -w A-4-33-40-41-42-43-34-44 -o lab1.cmo lab1.ml
++ /home/chris-cantwell/.opam/4.06.0/bin/ocamlc.opt -c -I /home/chris-cantwell/.opam/4.06.0/lib/ocaml -thread -strict-sequence -w A-4-33-40-41-42-43-34-44 -o lab1.cmo lab1.ml
+File "lab1.ml", line 235, characters 15-19:
+Warning 27: unused variable name.
+File "lab1.ml", line 248, characters 17-22:
+Warning 27: unused variable price.
+File "lab1.ml", line 277, characters 20-24:
+Warning 27: unused variable year.
+File "lab1.ml", line 279, characters 18-22:
+Warning 27: unused variable year.
+File "lab1.ml", line 298, characters 15-16:
+Warning 27: unused variable x.
+File "lab1.ml", line 317, characters 19-20:
+Warning 27: unused variable x.
+# Target: lab1.byte, tags: { warn(A-4-33-40-41-42-43-34-44), byte, dont_link_with, extension:byte, file:lab1.byte, link, ocaml, program, quiet, strict-sequence, thread, traverse, use_str }
+/home/chris-cantwell/.opam/4.06.0/bin/ocamlc.opt -I /home/chris-cantwell/.opam/4.06.0/lib/ocaml unix.cma str.cma -thread threads.cma lab1.cmo -o lab1.byte
+# Compilation successful.
