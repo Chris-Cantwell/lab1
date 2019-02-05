@@ -23,7 +23,7 @@ system. By now, you should be set up with Gradescope.
 ........................................................................
 Exercise 1: To make sure that the setup works, submit this file,
 just as is, under the filename "lab1.ml" to the Lab 1 assignment on
-the CS51 Gradescope web site.
+the CS51 Gradescope web site. Will do!
 ........................................................................
 
 When you submit labs (including this one) Gradescope will check that the
