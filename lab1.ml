@@ -103,8 +103,6 @@ exercise1 below.
 
 let exercise3 () = ~-(5 - 3) ;;
 
-(* Alt: ~-5 + ~-3 *)
-
 (* Hint: The OCaml concrete expression
 
    ~- 5 - 3
@@ -124,6 +122,18 @@ like.
 	  / \
 	 /   \
 	5    -~
+
+	   < or > 
+
+	      -
+	      ^
+	     / \
+	    /   \
+	   ~-    3
+	   |
+	   |
+	   5
+
 *)
 (*......................................................................
 Exercise 5: Associativity plays a role in cases when two operators
@@ -232,9 +242,19 @@ to the function.
 - : string = "Hi Gabby. Welcome home! How are you today?"
 ......................................................................*)
 
+(*
+v1: doesn't handle lowercase
+
 let say_hello (name : string) : string =
   if name = "Gabby" then "Hi Gabby. Welcome home! How are you today?"	
   else "Hi " ^ name ^ ". How are you today?" ;;
+*)
+
+let say_hello (name : string) : string =
+  "Hi " ^ name ^ ". "
+  ^ (if name = "Gabby" || name = "gabby" then "Welcome home! "
+    else "")
+  ^ "How are you today?"
 
 (*......................................................................
 Exercise 9: Define a function, small_bills, that determines, given a
@@ -246,8 +266,17 @@ assume (perhaps unrealistically) that all prices are given as
 integers. For this lab, you may assume all prices given are
 non-negative.
 ......................................................................*)
+
+(*
+v1: 20 is a magic number
+
 let small_bills (price : int) : bool =
-  if price > 20 && price & 20 = 0 then false else true ;;
+  if (price > 20) && (price mod 20 = 0) then false else true ;;
+*)
+
+let small_bills (price : int) : bool =
+  let cutoff = 20 in
+	if (price > cutoff) && (price mod cutoff = 0) then false else true ;;
 
 (*......................................................................
 Exercise 10:
@@ -275,10 +304,28 @@ that:
 
 ......................................................................*)
 
+(* Leaning heavily on the solution code for this one but I can see the importance of "let.. in" statements *)
+
+let computus_common (year : int) : int =
+  let a = year mod 19 in
+  let b = year / 100 in
+  let c = year mod 100 in
+  let d = b / 4 in
+  let e = b mod 4 in
+  let f = (b + 8) / 25 in
+  let g = (b - f + 1) / 3 in
+  let h = (19 * a + b - d - g + 15) mod 30 in
+  let i = c / 4 in
+  let k = c mod 4 in
+  let l = (32 + 2 * e + 2 * i - h - k) mod 7 in
+  let m = (a + 11 * h + 22 * l) / 451 in
+  h + l - 7 * m + 114 ;;
+
 let computus_month (year : int) : int =
-    ;;
-let computus_day (year : int) : int =
-  failwith "computus_day not implemented" ;;
+  (computus_common year) / 31 ;;
+
+let computus_day (year : int) =
+  1 + ((computus_common) year mod 31) ;;
 
 (*======================================================================
 Part 4: Utilizing recursion
@@ -296,8 +343,9 @@ this exercise, you may assume all inputs will be positive.
 
 ......................................................................*)
 
-let factorial (x : int) : int =
-  failwith "factorial not implementated" ;;
+let rec factorial (x : int) : int =
+   if x = 0 then 1 else
+   x * factorial (x - 1) ;;
 
 (*......................................................................
 Exercise 12: Define a recursive function that sums all the elements
@@ -315,5 +363,7 @@ the mathematician Carl Freiedrich Gauss as a seven-year-old, *in his
 head*!)
 ......................................................................*)
 
-let sum_from_zero (x : int) : int =
-  failwith "sum_from_zero not implemented" ;;
+let rec sum_from_zero (x : int) : int =
+  if x = 0 then 0
+  else if x < 0 then x + sum_from_zero (x + 1)
+  else x + sum_from_zero (x - 1) ;;
